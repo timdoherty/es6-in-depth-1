@@ -19,6 +19,16 @@ describe('template strings', () => {
   it('handles multi-line strings', () => {
 
     // how to test multi-line??
+
+    let myMulti = `this is a
+    mutiline string
+    for demonstration`;
+
+    let myMultiPlainString = 'this is a\n' +
+        'multiline string\n' +
+        'for demonstration';
+
+    expect(myMultiPlainString).toBe(myMulti);
   });
 
   it('interpolates expressions into a template string', () => {
