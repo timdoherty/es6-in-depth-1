@@ -16,7 +16,7 @@ describe('template strings', () => {
     expect(myTemplateString).toBe('My name is Joe and I\'m 49 years old.');
   });
 
-  it('handles multi-line strings', () => {
+  xit('handles multi-line strings', () => {
 
     // how to test multi-line??
 
