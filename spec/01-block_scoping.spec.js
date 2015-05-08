@@ -1,8 +1,3 @@
-/**
- * Created by dohertyt on 5/4/15.
- */
-
-'use strict';
 
 describe('let', () => {
 
@@ -31,9 +26,9 @@ describe('let', () => {
 
     let funcs = [];
 
-    //Change loop counter to `let` so that it is recreated in each iteration
+    //Change loop counter to `let` so that it is recreated for each iteration
     for (let i = 0; i < 10; i++) {
-      funcs.push((i) => i);
+      funcs.push(() => i);
     }
 
     expect(funcs[3]()).toBe(3);

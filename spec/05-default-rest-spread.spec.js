@@ -1,6 +1,3 @@
-/**
- * Created by dohertyt on 5/5/15.
- */
 
 describe('default parameters', () => {
 
@@ -38,7 +35,18 @@ describe('default parameters', () => {
     myFunc();
   });
 
-  // TODO function param?
+  it('can take a function as default', () => {
+
+    let myFunc = (cb = () => 'hello world!') => {
+      return cb();
+    };
+
+    let myCb = () => 'foo';
+
+    expect(myFunc(myCb)).toBe('foo');
+    expect(myFunc()).toBe('hello world!');
+  });
+
 });
 
 describe('rest parameters', () => {

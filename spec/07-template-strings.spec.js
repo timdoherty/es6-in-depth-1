@@ -1,6 +1,3 @@
-/**
- * Created by dohertyt on 5/5/15.
- */
 
 describe('template strings', () => {
 
@@ -16,19 +13,17 @@ describe('template strings', () => {
     expect(myTemplateString).toBe('My name is Joe and I\'m 49 years old.');
   });
 
-  xit('handles multi-line strings', () => {
+  it('handles multi-line strings', () => {
 
-    // how to test multi-line??
+    // make the test pass with a multi-line template string
 
-    let myMulti = `this is a
-    mutiline string
-    for demonstration`;
+    let multi = () => {
+      let myMulti = `this is a
+        mutiline string
+        for demonstration`;
+    };
 
-    let myMultiPlainString = 'this is a\n' +
-        'multiline string\n' +
-        'for demonstration';
-
-    expect(myMultiPlainString).toBe(myMulti);
+    expect(multi).not.toThrow();
   });
 
   it('interpolates expressions into a template string', () => {
