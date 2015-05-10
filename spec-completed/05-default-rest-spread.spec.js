@@ -1,9 +1,9 @@
 
 describe('default parameters', () => {
 
-  xit('should have a default parameter value', () => {
+  it('should have a default parameter value', () => {
 
-    // write a function myFunc with a default parameter to make the tests pass
+    let myFunc = (param='foo') => param;
 
     expect(myFunc('bar')).toBe('bar');
     expect(myFunc(undefined)).toBe('foo');
@@ -11,9 +11,11 @@ describe('default parameters', () => {
     expect(myFunc()).toBe('foo');
   });
 
-  xit ('should not appear in arguments', () => {
+  it ('should not appear in arguments', () => {
 
-    // write a function myFunc that returns the length of the arguments object
+    let myFunc = function(param='foo')  {
+      return arguments.length;
+    };
 
     expect(myFunc('bar')).toBe(1);
     expect(myFunc(null)).toBe(1);
@@ -21,11 +23,9 @@ describe('default parameters', () => {
 
   });
 
-  xit('takes an object as default', () => {
+  it('takes an object as default', () => {
 
-    // add default param(s) to make the test pass
-
-    let myFunc = function () {
+    let myFunc = function ({param1='foo', param2='bar'}={}) {
       expect(param1).toBeDefined();
       expect(param2).toBeDefined();
     };
@@ -37,8 +37,9 @@ describe('default parameters', () => {
 
   it('can take a function as default', () => {
 
-    // write a function myFunc that has a default function parameter, and returns the
-    // result of the function parameter
+    let myFunc = (cb = () => 'hello world!') => {
+      return cb();
+    };
 
     let myCb = () => 'foo';
 
@@ -50,10 +51,11 @@ describe('default parameters', () => {
 
 describe('rest parameters', () => {
 
-  xit('should have a variable number of unspecified arguments', () => {
+  it('should have a variable number of unspecified arguments', () => {
 
-    // write a function myFunc with named parameters and a "rest" parameter
-    // and have it return the "rest" parameter to make the tests pass
+    let myFunc = (arg1, arg2, ...rest) => {
+      return rest;
+    };
 
     expect(myFunc().length).toBe(0);
     expect(myFunc(1).length).toBe(0);
@@ -62,9 +64,13 @@ describe('rest parameters', () => {
     expect(myFunc(1,2,3,4).length).toBe(2);
   });
 
-  xit('is a proper array vs the arguments object', () => {
+  it('is a proper array vs the arguments object', () => {
 
-    // write two functions myFunc and myFunc2 to make the tests pass
+    let myFunc = function () {
+      return arguments;
+    };
+
+    let myFunc2 = (...rest) => rest;
 
     let args = myFunc(1, 2, 3);
     let restParams = myFunc2(1, 2, 3);
@@ -80,45 +86,41 @@ describe('rest parameters', () => {
 
 describe('spread operator', () => {
 
-  xit('declaratively splices two arrays', () => {
-
+  it('declaratively splices two arrays', () => {
     let array1 = [3, 4, 5];
-
-    // use the spread operator to declare array2 such that the test passes
+    let array2 = [1, 2, ...array1, 6, 7, 8, 9, 10];
 
     expect(array2).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
 
-  xit('makes for a cleaner array.push',() => {
+  it('makes for a cleaner array.push',() => {
     let array1 = [1, 2, 3];
     let array2 = [4, 5, 6];
 
-    // use the spread operator to push array2's elements into array1
+    array1.push(...array2);
 
     expect(array1).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
-  xit('can replace function.apply for argument arrays', () => {
+  it('can replace function.apply for argument arrays', () => {
 
     let myFunc = (x, y, z) => x + y + z;
     let args = [1, 2, 3];
 
     // implement funcApply to call myFunc with the args array
     function funcApply(argsArray) {
-
+      return myFunc(...argsArray);
     }
 
     expect(funcApply(args)).toBe(6);
   });
 
-  xit('can emulate function.apply for constructors', () => {
+  it('can emulate function.apply for constructors', () => {
 
     let dateParts = [1995, 12, 1];
 
-    // implement dateApply to use the Date object's constructor with the passed in array
-
     function dateApply(parts) {
-
+      return new Date(...parts)
     }
 
     expect(dateApply(dateParts)).toEqual(new Date(1995, 12, 1));

@@ -1,49 +1,50 @@
 
 describe('destructuring assignment with arrays', () => {
 
-  xit('provides terse syntax for assigning variables from an array', () => {
+  it('provides terse syntax for assigning variables from an array', () => {
 
-    // make the tests pass with variables a, b, c, and an array [1, 2, 3]
+    let [a, b, c] = [1, 2, 3];
 
     expect(a).toBe(1);
     expect(b).toBe(2);
     expect(c).toBe(3);
   });
 
-  xit('can skip array elements', () => {
+  it('can skip array elements', () => {
 
-    // make the tests pass with variables a, c, and an array [1, 2, 3]
-
+    let [a, , c] = [1, 2, 3];
     expect(a).toBe(1);
     expect(c).toBe(3);
   });
 
-  xit('can pull elements from nested arrays', () => {
+  it('can pull elements from nested arrays', () => {
 
-    // make the tests pass with variables a, c, f, and a nested array [1, 2, [3, 4, [5, 6]]]
+    let [a, , [c, , [, f]]] = [1, 2, [3, 4, [5, 6]]];
 
     expect(a).toBe(1);
     expect(c).toBe(3);
     expect(f).toBe(6);
   });
 
-  xit('can swap variables', () => {
+  it('can swap variables', () => {
 
     let a = 1, b = 2;
 
-    // use destructuring to swap the variables
+    [a, b] = [b, a];
 
     expect(a).toBe(2);
     expect(b).toBe(1);
   });
 
-  xit('can destructure regular expression matches', () => {
+  it('can destructure regular expression matches', () => {
 
     let url = 'http://www.timdoherty.net/search/label/JavaScript';
 
     let parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);
 
     // destructure the parsedURL array to make the tests pass
+
+    let [, scheme, host, path] = parsedURL;
 
     expect(scheme).toBe('http');
     expect(host).toBe('www.timdoherty.net');

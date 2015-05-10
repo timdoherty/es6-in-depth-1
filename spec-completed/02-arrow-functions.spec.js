@@ -1,7 +1,7 @@
 
 describe('arrow functions', () => {
 
-  xit('makes simple functions more terse', () => {
+  it('makes simple functions more terse', () => {
 
     let square, squareArrow;
 
@@ -9,21 +9,22 @@ describe('arrow functions', () => {
       return x * x;
     };
 
-    // implement squareArrow with the new arrow syntax
+    // implement squareArrow with the new syntax
+    squareArrow = x => x * x;
 
     expect(squareArrow(5)).toBe(square(5));
   });
 
-  xit('provides lexical binding for `this`', () => {
+  it('provides lexical binding for `this`', () => {
 
-    // implement runningTotal.addNumbers using arrow syntax to make the test pass
+    // implement addNumbers using arrow syntax to make the test pass
 
     let runningTotal = {
       total: 0,
 
       addNumbers: function (numbers) {
-        numbers.forEach(function (number) {
-          this.total += number
+        numbers.forEach(number => {
+          this.total += number;
         });
       }
     };
@@ -32,20 +33,17 @@ describe('arrow functions', () => {
     expect(runningTotal.total).toBe(15);
   });
 
-  xit('makes simple predicates more terse', () => {
+  it('makes simple predicates more terse', () => {
 
     let numbers = [1,2,3,4,5,6,7,8,9,10];
 
-    // make the test pass with arrow syntax
-
-    let evenNumbers = numbers.filter(function (x) {
-      return x % 2 === 0;
-    });
+    // use arrow syntax and Array.prototype.filter to produce only even numbers
+    let evenNumbers = numbers.filter(x => x % 2 === 0);
 
     expect(evenNumbers).toEqual([2,4,6,8,10]);
   });
 
-  xit('makes callback chains more terse', () => {
+  it('makes callback chains more terse', () => {
 
     let employees = [
       { name: 'John Doe', dept: 'IT', salary: 150000 },
@@ -56,21 +54,13 @@ describe('arrow functions', () => {
       { name: 'June Jones', dept: 'IT', salary: 125000 }
     ];
 
-    // rewrite the callback chain and make the tests pass with arrow functions
+    // write the callback chain with arrow functions
 
     let highPaidIT = employees
-      .filter(function (e) {
-        return e.dept === 'IT';
-      })
-      .filter(function (e) {
-        return e.salary >= 100000;
-      })
-      .sort(function (a,b) {
-        return b.salary - a.salary;
-      })
-      .map(function (e) {
-        return e.name;
-      });
+      .filter(e => e.dept === 'IT')
+      .filter(e => e.salary >= 100000)
+      .sort((a,b) => b.salary - a.salary)
+      .map(e => e.name);
 
     expect(highPaidIT.length).toBe(3);
     expect(highPaidIT.shift()).toBe('Jane Plane');

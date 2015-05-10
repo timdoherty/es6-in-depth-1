@@ -1,16 +1,15 @@
 
 describe('enhanced object literal syntax', () => {
 
-  xit('has shorthand property names', () => {
+  it('has shorthand property names', () => {
 
+    // use property shorthand to make the tests pass
     let name = 'Joe';
     let age = 49;
 
-    // use property shorthand to make the tests pass
-
     let person = {
-      name: name,
-      age: age
+      name,
+      age
     };
 
     expect(person.name).toBe('Joe');
@@ -18,19 +17,19 @@ describe('enhanced object literal syntax', () => {
 
   });
 
-  xit('has computed properties', () => {
+  it('has computed properties', () => {
 
-    // add a computed property 'b' + 'ar' to make the tests pass
-
+    // create an object with a computed property to pass the tests
     let thing = {
-      foo: 'bar'
+      foo: 'bar',
+      ['b' + 'ar']: 'baz'
     };
 
     expect(thing.foo).toBe('bar');
     expect(thing.bar).toBe('baz');
   });
 
-  xit('has improved method syntax', () => {
+  it('has improved method syntax', () => {
 
     // use new method syntax to make the test pass
 
@@ -39,7 +38,10 @@ describe('enhanced object literal syntax', () => {
 
     let person = {
       name,
-      age
+      age,
+      speak() {
+        return 'I am ' + this.name + ' and I am ' + this.age + ' years old.';
+      }
     };
 
     expect(person.speak()).toBe('I am Joe and I am 49 years old.');
