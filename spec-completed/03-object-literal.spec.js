@@ -45,5 +45,6 @@ describe('enhanced object literal syntax', () => {
     };
 
     expect(person.speak()).toBe('I am Joe and I am 49 years old.');
-  })
+  });
+
 });

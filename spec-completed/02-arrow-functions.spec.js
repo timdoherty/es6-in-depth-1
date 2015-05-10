@@ -10,14 +10,29 @@ describe('arrow functions', () => {
     };
 
     // implement squareArrow with the new syntax
+
     squareArrow = x => x * x;
 
     expect(squareArrow(5)).toBe(square(5));
   });
 
+  it('cannot be hoisted', () => {
+
+    // arrow function are always function expressions, and thus cannot be hoisted
+
+    // write foo as an arrow function to make the test pass
+
+    function noHoisting() {
+      foo('a');
+      var foo = x => x;
+    }
+
+    expect(noHoisting).toThrow(new ReferenceError('undefined is not a function'));
+  });
+
   it('provides lexical binding for `this`', () => {
 
-    // implement addNumbers using arrow syntax to make the test pass
+    // implement runningTotal.addNumbers using arrow syntax to make the test pass
 
     let runningTotal = {
       total: 0,
@@ -30,10 +45,11 @@ describe('arrow functions', () => {
     };
 
     runningTotal.addNumbers([1,2,3,4,5]);
+
     expect(runningTotal.total).toBe(15);
   });
 
-  it('makes simple predicates more terse', () => {
+  it('makes simple lambdas more terse', () => {
 
     let numbers = [1,2,3,4,5,6,7,8,9,10];
 
