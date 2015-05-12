@@ -3,6 +3,8 @@ describe('default parameters', () => {
 
   it('should have a default parameter value', () => {
 
+    // write a function myFunc with a default parameter to make the tests pass
+
     let myFunc = (param='foo') => param;
 
     expect(myFunc('bar')).toBe('bar');
@@ -12,6 +14,8 @@ describe('default parameters', () => {
   });
 
   it ('should not appear in arguments', () => {
+
+    // write a function myFunc that returns the length of the arguments object
 
     let myFunc = function(param='foo')  {
       return arguments.length;
@@ -25,6 +29,8 @@ describe('default parameters', () => {
 
   it('takes an object as default', () => {
 
+    // add default param(s) to make the test pass
+
     let myFunc = function ({param1='foo', param2='bar'}={}) {
       expect(param1).toBeDefined();
       expect(param2).toBeDefined();
@@ -36,6 +42,8 @@ describe('default parameters', () => {
   });
 
   it('can take a function as default', () => {
+
+    // write a function myFunc that has a default function parameter
 
     let myFunc = (cb = () => 'hello world!') => {
       return cb();
@@ -53,6 +61,8 @@ describe('rest parameters', () => {
 
   it('should have a variable number of unspecified arguments', () => {
 
+    // write a function myFunc with a combination of named and rest parameters
+
     let myFunc = (arg1, arg2, ...rest) => {
       return rest;
     };
@@ -65,6 +75,8 @@ describe('rest parameters', () => {
   });
 
   it('is a proper array vs the arguments object', () => {
+
+    // write two functions myFunc and myFunc2 to make the tests pass
 
     let myFunc = function () {
       return arguments;
@@ -88,6 +100,9 @@ describe('spread operator', () => {
 
   it('declaratively splices two arrays', () => {
     let array1 = [3, 4, 5];
+
+    // use the spread operator to declare array2 such that the test passes
+
     let array2 = [1, 2, ...array1, 6, 7, 8, 9, 10];
 
     expect(array2).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -96,6 +111,8 @@ describe('spread operator', () => {
   it('makes for a cleaner array.push',() => {
     let array1 = [1, 2, 3];
     let array2 = [4, 5, 6];
+
+    // use the spread operator to push array2's elements into array1
 
     array1.push(...array2);
 
@@ -107,7 +124,8 @@ describe('spread operator', () => {
     let myFunc = (x, y, z) => x + y + z;
     let args = [1, 2, 3];
 
-    // implement funcApply to call myFunc with the args array
+    // implement funcApply to make the test pass
+
     function funcApply(argsArray) {
       return myFunc(...argsArray);
     }
@@ -118,6 +136,8 @@ describe('spread operator', () => {
   it('can emulate function.apply for constructors', () => {
 
     let dateParts = [1995, 12, 1];
+
+    // implement dateApply to make the test pass
 
     function dateApply(parts) {
       return new Date(...parts)

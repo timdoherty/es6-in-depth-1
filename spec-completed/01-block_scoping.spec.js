@@ -3,6 +3,8 @@ describe('let', () => {
 
   it('can be assigned like var', () => {
 
+    // make the test pass with let
+
     let foo = 'bar';
 
     foo = 'baz';
@@ -11,6 +13,8 @@ describe('let', () => {
   });
 
   it('does not hoist let like var', () => {
+
+    // make the test pass with let
 
     function noHoisting() {
       console.log(foo);
@@ -26,7 +30,8 @@ describe('let', () => {
 
     let funcs = [];
 
-    //Change loop counter to `let` so that it is recreated for each iteration
+    // make the test pass with let
+
     for (let i = 0; i < 10; i++) {
       funcs.push(() => i);
     }
@@ -35,6 +40,9 @@ describe('let', () => {
   });
 
   it('has block level scoping with let', () => {
+
+    // make the test pass with let
+
     let foo = 'bar';
 
     {

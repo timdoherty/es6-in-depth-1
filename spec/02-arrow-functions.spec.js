@@ -16,8 +16,6 @@ describe('arrow functions', () => {
 
   xit('cannot be hoisted', () => {
 
-    // arrow function are always function expressions, and thus cannot be hoisted
-
     // write foo as an arrow function to make the test pass
 
     function noHoisting() {

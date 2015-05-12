@@ -4,6 +4,7 @@ describe('let', () => {
   xit('can be assigned like var', () => {
 
     // make the test pass with let
+
     var foo = 'bar';
 
     foo = 'baz';
@@ -29,7 +30,8 @@ describe('let', () => {
 
     let funcs = [];
 
-    //Change loop counter to `let` so that it is recreated for each iteration
+    // make the test pass with let
+
     for (var i = 0; i < 10; i++) {
       funcs.push(() => i);
     }
@@ -39,7 +41,7 @@ describe('let', () => {
 
   xit('has block level scoping with let', () => {
 
-    // make the test pass using let block scoping
+    // make the test pass with let
 
     var foo = 'bar';
 
@@ -56,7 +58,7 @@ describe('const', () => {
 
   xit('only restricts array variable assignment, not values', () => {
 
-    // make the test pass with let
+    // make the test pass with const
 
     var myArray = [1, 2, 3];
 
@@ -67,7 +69,7 @@ describe('const', () => {
 
   xit('only restricts object variable assignment, not values', () => {
 
-    // make the test pass with let
+    // make the test pass with const
 
     var myObj = { a: 1, b: 2, c: 3 };
     myObj.a = 4;

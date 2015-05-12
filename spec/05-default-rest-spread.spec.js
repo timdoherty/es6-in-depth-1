@@ -37,8 +37,7 @@ describe('default parameters', () => {
 
   xit('can take a function as default', () => {
 
-    // write a function myFunc that has a default function parameter, and returns the
-    // result of the function parameter
+    // write a function myFunc that has a default function parameter
 
     let myCb = () => 'foo';
 
@@ -52,8 +51,7 @@ describe('rest parameters', () => {
 
   xit('should have a variable number of unspecified arguments', () => {
 
-    // write a function myFunc with named parameters and a "rest" parameter
-    // and have it return the "rest" parameter to make the tests pass
+    // write a function myFunc with a combination of named and rest parameters
 
     expect(myFunc().length).toBe(0);
     expect(myFunc(1).length).toBe(0);
@@ -103,10 +101,7 @@ describe('spread operator', () => {
     let myFunc = (x, y, z) => x + y + z;
     let args = [1, 2, 3];
 
-    // implement funcApply to call myFunc with the args array
-    function funcApply(argsArray) {
-
-    }
+    // implement funcApply to make the test pass
 
     expect(funcApply(args)).toBe(6);
   });
@@ -115,11 +110,7 @@ describe('spread operator', () => {
 
     let dateParts = [1995, 12, 1];
 
-    // implement dateApply to use the Date object's constructor with the passed in array
-
-    function dateApply(parts) {
-
-    }
+    // implement dateApply to make the test pass
 
     expect(dateApply(dateParts)).toEqual(new Date(1995, 12, 1));
   });

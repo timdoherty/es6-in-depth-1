@@ -31,31 +31,27 @@ describe('template strings', () => {
     let currentYear = 2015;
     let birthYear = 1970;
 
-    // write a template string with expression to make the test pass
+    // write a template string to make the test pass
 
     let myTemplateString = `I am approximately ${currentYear - birthYear} years old.`;
 
     expect(myTemplateString).toBe('I am approximately 45 years old.');
   });
 
-  it('modifies a the output with a tagged template string', () => {
+  it('modifies the output with a tagged template string', () => {
 
     let amount = 5;
     let cost = 10;
 
-    // build a tagged template string to format the numbers above as currency (USD)
+    // write a tag function to make the test pass
 
     let formatCurrency = (strings, ...values) => {
-      let result = '';
-      values.forEach((value, index, array) => { array[index] = `$${value}.00` });
-
-      for(let i = 0; i < strings.length; i++) {
-        result += strings[i];
-        if (i < values.length) {
-          result += values[i];
+      return strings.reduce(function (prev, cur, idx) {
+        if (idx > 0) {
+          prev += `$${values[idx-1]}.00`;
         }
-      }
-      return result;
+        return prev + cur;
+      }, '');
     };
 
     expect(formatCurrency `It costs ${cost} but I only have ${amount}`).toBe('It costs $10.00 but I only have $5.00')

@@ -3,9 +3,10 @@ describe('enhanced object literal syntax', () => {
 
   it('has shorthand property names', () => {
 
-    // use property shorthand to make the tests pass
     let name = 'Joe';
     let age = 49;
+
+    // use property shorthand to make the tests pass
 
     let person = {
       name,
@@ -19,7 +20,8 @@ describe('enhanced object literal syntax', () => {
 
   it('has computed properties', () => {
 
-    // create an object with a computed property to pass the tests
+    // add a computed property 'b' + 'ar' to make the tests pass
+
     let thing = {
       foo: 'bar',
       ['b' + 'ar']: 'baz'

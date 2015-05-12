@@ -18,8 +18,6 @@ describe('arrow functions', () => {
 
   it('cannot be hoisted', () => {
 
-    // arrow function are always function expressions, and thus cannot be hoisted
-
     // write foo as an arrow function to make the test pass
 
     function noHoisting() {
@@ -53,7 +51,8 @@ describe('arrow functions', () => {
 
     let numbers = [1,2,3,4,5,6,7,8,9,10];
 
-    // use arrow syntax and Array.prototype.filter to produce only even numbers
+    // make the test pass with arrow syntax
+
     let evenNumbers = numbers.filter(x => x % 2 === 0);
 
     expect(evenNumbers).toEqual([2,4,6,8,10]);
@@ -70,7 +69,7 @@ describe('arrow functions', () => {
       { name: 'June Jones', dept: 'IT', salary: 125000 }
     ];
 
-    // write the callback chain with arrow functions
+    // rewrite the callback chain and make the tests pass with arrow functions
 
     let highPaidIT = employees
       .filter(e => e.dept === 'IT')
