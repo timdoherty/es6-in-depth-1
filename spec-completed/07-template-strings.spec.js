@@ -31,6 +31,8 @@ describe('template strings', () => {
     let currentYear = 2015;
     let birthYear = 1970;
 
+    // TODO change the expression
+
     // write a template string to make the test pass
 
     let myTemplateString = `I am approximately ${currentYear - birthYear} years old.`;

@@ -30,6 +30,8 @@ describe('template strings', () => {
     let currentYear = 2015;
     let birthYear = 1970;
 
+    // TODO change the expression
+
     // write a template string to make the test pass
 
     expect(myTemplateString).toBe('I am approximately 45 years old.');
