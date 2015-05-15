@@ -19,7 +19,6 @@ describe('arrow functions', () => {
     // write foo as an arrow function to make the test pass
 
     function noHoisting() {
-
       foo('a');
 
       function foo (x) {

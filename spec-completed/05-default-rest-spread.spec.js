@@ -88,8 +88,8 @@ describe('rest parameters', () => {
     let restParams = myFunc2(1, 2, 3);
 
     expect(args.__proto__).toNotBe(restParams.__proto__);
-    expect(restParams.__proto__).toBe(Array.prototype);
     expect(args.__proto__).toBe(Object.prototype);
+    expect(restParams.__proto__).toBe(Array.prototype);
     expect(args.slice).toBeUndefined();
     expect(restParams.slice).toBeDefined();
   });

@@ -1,8 +1,5 @@
 
-import foo from '../components/foo';
-import myFoo  from '../components/foo';
-import { bar } from '../components/foo';
-import { bar as myBar, baz as myBaz } from '../components/foo';
+// add imports from /components/foo.js here to make the tests pass
 
 describe('modules', () => {
 

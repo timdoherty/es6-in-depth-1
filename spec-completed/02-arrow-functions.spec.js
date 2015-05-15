@@ -22,6 +22,7 @@ describe('arrow functions', () => {
 
     function noHoisting() {
       foo('a');
+
       var foo = x => x;
     }
 

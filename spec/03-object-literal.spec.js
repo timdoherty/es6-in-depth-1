@@ -8,11 +8,6 @@ describe('enhanced object literal syntax', () => {
 
     // use property shorthand to make the tests pass
 
-    let person = {
-      name: name,
-      age: age
-    };
-
     expect(person.name).toBe('Joe');
     expect(person.age).toBe(49);
 
@@ -36,11 +31,6 @@ describe('enhanced object literal syntax', () => {
 
     let name = 'Joe';
     let age = 49;
-
-    let person = {
-      name,
-      age
-    };
 
     expect(person.speak()).toBe('I am Joe and I am 49 years old.');
   })

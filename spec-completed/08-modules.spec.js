@@ -1,4 +1,6 @@
 
+// add imports from /components/foo.js here to make the tests pass
+
 import foo from '../components/foo';
 import myFoo  from '../components/foo';
 import { bar } from '../components/foo';
