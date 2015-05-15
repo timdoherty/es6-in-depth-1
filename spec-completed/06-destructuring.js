@@ -17,6 +17,7 @@ describe('destructuring assignment with arrays', () => {
     // make the tests pass by skipping an element in array [1, 2, 3]
 
     let [a, , c] = [1, 2, 3];
+
     expect(a).toBe(1);
     expect(c).toBe(3);
   });

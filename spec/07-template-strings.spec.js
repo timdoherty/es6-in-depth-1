@@ -11,33 +11,17 @@ describe('template strings', () => {
     expect(myTemplateString).toBe('My name is Joe and I\'m 49 years old.');
   });
 
-  it('handles multi-line strings', () => {
-
-    // TODO how to test multiline
-    // make the test pass with a multi-line template string
-
-    let multi = () => {
-      let myMulti = `this is a
-        mutiline string
-        for demonstration`;
-    };
-
-    expect(multi).not.toThrow();
-  });
-
   xit('interpolates expressions into a template string', () => {
 
     let currentYear = 2015;
-    let birthYear = 1970;
-
-    // TODO change the expression
+    let birthYear = 1995;
 
     // write a template string to make the test pass
 
-    expect(myTemplateString).toBe('I am approximately 45 years old.');
+    expect(myTemplateString).toBe('JavaScript is 20 years old.');
   });
 
-  it('modifies a the output with a tagged template string', () => {
+  xit('modifies a the output with a tagged template string', () => {
 
     let amount = 5;
     let cost = 10;
